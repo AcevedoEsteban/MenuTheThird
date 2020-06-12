@@ -12,7 +12,7 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const data = await db.user.findAll({ include: [db.employee] });
+      const data = await db.user.findAll({ include: [db.menu] });
 
       res.render("index", { table: data });
     } catch (error) {
@@ -24,11 +24,11 @@ router.get(
 );
 
 router.post(
-  "/employee/user_id",
+  "/menu/user_id",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const data = await db.employee.create({
+      const data = await db.menu.create({
         ...req.body,
         user_id: req.params.user_id,
       });
@@ -42,7 +42,7 @@ router.post(
 
 module.exports = router;
 // router.post(
-//   "/employee",
+//   "/menu",
 //   passport.authenticate("jwt", { session: false }),
 //   async (req, res) => {
 //     const data = await db.user.create(req.body);

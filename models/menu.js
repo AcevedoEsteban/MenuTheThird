@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Employee = sequelize.define(
-    "employee",
+  const Menu = sequelize.define(
+    "menu",
     {
       TableNumber: {
         type: DataTypes.INTEGER,
@@ -17,13 +17,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  Employee.associate = (models) => {
-    Employee.belongsTo(models.user, {
+  Menu.associate = (models) => {
+    Menu.belongsTo(models.user, {
       foreignKey: {
         allowNull: false,
       },
     });
   };
 
-  return Employee;
+  return Menu;
 };
