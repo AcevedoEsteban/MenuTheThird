@@ -6,20 +6,20 @@ module.exports = (sequelize, DataTypes) => {
     {
       email: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       password: {
         type: DataTypes.TEXT,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     },
     {
       underscored: true,
-      freezeTableName: true
+      freezeTableName: true,
     }
   );
 
-  User.generateHash = password => {
+  User.generateHash = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
   };
 
@@ -27,11 +27,15 @@ module.exports = (sequelize, DataTypes) => {
     return bcrypt.compareSync(inputPwd, dbPwd);
   };
 
-  User.associate = models => {
+  User.associate = (models) => {
     User.hasMany(models.history, {
-      onDelete: "cascade"
+      onDelete: "cascade",
     });
   };
-
+  User.associate = (models) => {
+    User.hasMany(models.employee, {
+      onDelete: "cascade",
+    });
+  };
   return User;
 };
