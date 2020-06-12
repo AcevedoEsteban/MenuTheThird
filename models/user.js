@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
   User.associate = (models) => {
-    User.hasMany(models.employee, {
+    User.hasMany(models.menu, {
       onDelete: "cascade",
     });
   };
