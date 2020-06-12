@@ -2,10 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const Handlebars = require("handlebars");
 const exphbs = require("express-handlebars");
-const { allowInsecurePrototypeAccess } = require("@handlebars/allow-prototype-access");
+const {
+  allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
 const authController = require("./controller/auth-controller");
 const userController = require("./controller/user-controller");
 const historyController = require("./controller/history-controller");
+const menu = require("./controller/menu-controller");
 
 const db = require("./models");
 
@@ -22,7 +25,7 @@ app.engine(
   "handlebars",
   exphbs({
     defaultLayout: "main",
-    handlebars: allowInsecurePrototypeAccess(Handlebars)
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
   })
 );
 app.set("view engine", "handlebars");
@@ -30,6 +33,7 @@ app.set("view engine", "handlebars");
 app.use(authController);
 app.use(userController);
 app.use(historyController);
+app.use(menu);
 
 const syncOptions = { force: false };
 
@@ -45,7 +49,9 @@ const startServer = async () => {
 
   app.listen(PORT, () => {
     // eslint-disable-next-line no-console
-    console.log(`==> 🌎  Listening on port ${PORT}. Visit http://localhost:${PORT}/ in your browser.`);
+    console.log(
+      `==> 🌎  Listening on port ${PORT}. Visit http://localhost:${PORT}/ in your browser.`
+    );
   });
 };
 

@@ -3,20 +3,20 @@ module.exports = (sequelize, DataTypes) => {
     "history",
     {
       status: {
-        type: DataTypes.STRING
-      }
+        type: DataTypes.STRING,
+      },
     },
     {
       underscored: true,
-      freezeTableName: true
+      freezeTableName: true,
     }
   );
 
   History.associate = (models) => {
     History.belongsTo(models.user, {
-      foreignKey: {
-        allowNull: false
-      }
+      // foreignKey: {
+      //   allowNull: false,
+      // },
     });
   };
 

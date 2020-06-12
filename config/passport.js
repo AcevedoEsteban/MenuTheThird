@@ -3,7 +3,7 @@ const JwtStrategy = require("passport-jwt").Strategy;
 const jwtSecret = require("./jwt-config");
 const db = require("../models");
 
-module.exports = passport => {
+module.exports = (passport) => {
   passport.serializeUser((user, cb) => {
     cb(null, user.id);
   });
@@ -20,24 +20,24 @@ module.exports = passport => {
       {
         usernameField: "email",
         passwordField: "password",
-        session: true
+        session: true,
       },
       async (email, password, cb) => {
         let data = await db.user.findOne({ where: { email: email } });
 
         if (data) {
           return cb(null, false, {
-            message: "Oops! Email already signed-up."
+            message: "Oops! Email already signed-up.",
           });
         } else {
           data = await db.user.create({
             email: email,
-            password: db.user.generateHash(password)
+            password: db.user.generateHash(password),
           });
 
           const record = {
             status: "SignUp",
-            userId: data.dataValues.id
+            userId: data.dataValues.id,
           };
 
           data = await db.history.create(record);
@@ -54,7 +54,7 @@ module.exports = passport => {
       {
         usernameField: "email",
         passwordField: "password",
-        session: false
+        session: false,
       },
       async (email, password, cb) => {
         let data = await db.user.findOne({ where: { email: email } });
@@ -68,7 +68,7 @@ module.exports = passport => {
 
         const record = {
           status: "LogIn",
-          userId: data.id
+          userId: data.id,
         };
 
         await db.history.create(record);
@@ -79,10 +79,10 @@ module.exports = passport => {
   );
 
   const opts = {
-    jwtFromRequest: req => {
+    jwtFromRequest: (req) => {
       return req.cookies.jwt;
     },
-    secretOrKey: jwtSecret.secret
+    secretOrKey: jwtSecret.secret,
   };
 
   passport.use(
