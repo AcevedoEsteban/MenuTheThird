@@ -42,7 +42,10 @@ router.get(
 
 router.get("/api/users/:id", async (req, res) => {
   try {
-    const data = await db.user.findAll({ where: { id: req.params.id }, include: [db.history] });
+    const data = await db.user.findAll({
+      where: { id: req.params.id },
+      include: [db.history],
+    });
 
     res.json(data);
   } catch (error) {
