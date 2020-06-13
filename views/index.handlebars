@@ -2,24 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1>Welcome! email goes here</h1>
-        {{#if user}}
-        <h2>This is our Home Page!</h2>
-        <a href="/logout" class="btn btn-success">Log Out</a>
-        <a href="/users" class="btn btn-success">Users</a>
-        {{else}}
-        <p>Please <a href="/login">log in</a>.</p>
-        {{/if}}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1>Welcome! email goes here</h1>
+        <h1>Welcome! 'email goes here'</h1>
         {{#if user}}
         <h2>This is our Home Page!</h2>
         <a href="/logout" class="btn btn-success">Log Out</a>
@@ -74,7 +57,7 @@
 </form>
 
 <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-  <div class="card-header">Table ID goes here</div>
+  <p id="card-header">Table ID goes here</p>
   <div class="card-body">
     <h5 class="card-title">Burgers</h5><button id="000">Add</button>
     <h5 class="card-title">Drinks</h5><button id="000">Add</button>
