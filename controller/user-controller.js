@@ -31,7 +31,7 @@ router.get(
     try {
       const data = await db.user.findAll({ include: [db.history] });
 
-      res.render(data);
+      res.json(data);
     } catch (error) {
       console.error(error);
 
