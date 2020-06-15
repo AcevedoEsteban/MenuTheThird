@@ -43,16 +43,18 @@ router.get(
 router.get("/api/users/:id", async (req, res) => {
   try {
     const data = await db.user.findAll({
+      attributes: "email", // attribute of table, email name, must match db, column name
       where: { id: req.params.id },
       include: [db.history],
     });
-
+console.log(data)
     res.json(data);
   } catch (error) {
     console.error(error);
 
     res.status(500).send();
   }
+  
 });
 
 router.post(
