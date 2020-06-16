@@ -10,6 +10,11 @@ const userController = require("./controller/user-controller");
 const historyController = require("./controller/history-controller");
 const menu = require("./controller/menu-controller");
 
+////////
+const authorController = require("./controller/author-controller");
+const postController = require("./controller/post-controller");
+///////
+
 const db = require("./models");
 
 const app = express();
@@ -34,6 +39,8 @@ app.use(authController);
 app.use(userController);
 app.use(historyController);
 app.use(menu);
+app.use(authorController);
+app.use(postController)
 
 const syncOptions = { force: false };
 
@@ -56,3 +63,4 @@ const startServer = async () => {
 };
 
 startServer();
+
