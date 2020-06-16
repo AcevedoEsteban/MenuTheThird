@@ -5,6 +5,7 @@ var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
+// data would be the function
 var API = {
   saveExample: function (example) {
     return $.ajax({
@@ -12,7 +13,7 @@ var API = {
         "Content-Type": "application/json",
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/examples", //data would be the function
       data: JSON.stringify(example),
     });
   },
@@ -70,7 +71,7 @@ var handleFormSubmit = function (event) {
   };
 
   if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+    alert("You must enter some text and/or description!");
     return;
   }
 
