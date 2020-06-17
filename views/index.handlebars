@@ -4,9 +4,12 @@
       <div class="col-12">
         <h1>Welcome! 'email goes here'</h1>
         {{#if user}}
-        <h2>This is our Home Page!</h2>
+        <h2>This is your Home Page!</h2>
         <a href="/logout" class="btn btn-success">Log Out</a>
         <a href="/users" class="btn btn-success">Users</a>
+        <a href="/authors" class="btn btn-success">Create a Table</a>
+        <a href="/blog" class="btn btn-success">Table List</a>
+        <a href="/cms" class="btn btn-success">Create...</a>
         {{else}}
         <p>Please <a href="/login">log in</a>.</p>
         {{/if}}
@@ -18,7 +21,7 @@
 
 
 
-<h1>Restaurant</h1>
+<!-- <h1>Restaurant</h1>
 
 <div class="row">
   <div class="col-6">
@@ -84,4 +87,4 @@
     <input type="text" id="burger" name="name">
   </div>
   <button id="add">Add</button>
-</form>
+</form> -->
