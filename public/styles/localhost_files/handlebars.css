@@ -1,0 +1,11 @@
+.classic {
+  /* background-image: url("./keto.jpg"); */
+  /* background-repeat: no-repeat; */
+  max-width: 100%;
+  height: auto;
+
+  /* background-color: red; */
+}
+.btn {
+  color: grey;
+}
