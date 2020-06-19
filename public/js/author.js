@@ -38,10 +38,10 @@ $(document).ready(function() {
     var newTr = $("<tr>");
     newTr.data("author", authorData);
     newTr.append("<td>" + authorData.name + "</td>");
-    newTr.append("<td># join/associations will go here</td>");
-    newTr.append("<td><a href='/blog?author_id=" + authorData.id + "'>Go to Tables</a></td>");
-    newTr.append("<td><a href='/cms?author_id=" + authorData.id + "'>Create</a></td>");
-    newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete</a></td>");
+    newTr.append("<td></td>");
+    newTr.append("<td><a href='/blog?author_id=" + authorData.id + "'>View Tables</a></td>");
+    newTr.append("<td><a href='/cms?author_id=" + authorData.id + "'>Create Table</a></td>");
+    newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete Employee</a></td>");
     return newTr;
   }
 
@@ -74,7 +74,7 @@ $(document).ready(function() {
   function renderEmpty() {
     var alertDiv = $("<div>");
     alertDiv.addClass("alert alert-danger");
-    alertDiv.text("You must create an Table before you can create a Post.");
+    alertDiv.text("You must create an Employee ID before you can create a Table.");
     authorContainer.append(alertDiv);
   }
 
