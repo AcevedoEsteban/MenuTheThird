@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Express</title>
+	<title>Resturante Express</title>
 	<!-- Latest compiled and minified CSS & JS -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
@@ -14,34 +14,46 @@
 <body>
 	<div class="container">
 		<div class="row top-30">
-      <div class="col-md-2 col-sm-2">
-        <a class="btn btn-default" href="/blog">View Open Tables</a>
+      <div class="col-md-3 col-sm-3">
+        <a class="btn btn-default" href="/">Home</a>
+			</div>
+			
+			<div class="col-md-3 col-sm-3">
+        <a class="btn btn-default" href="/cms"></a>
       </div>
-			<div class="col-md-2 col-sm-2">
-        <a class="btn btn-default" href="/cms">add order to table</a>
-      </div>
-    </div>
+		</div>
+
+		<!-- <div class="col-md-3 col-sm-3">
+			<a class="btn btn-default" href="/">Home</a>
+		</div>
+	</div> -->
+
+	
+		
+
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="author-container">
-					<h1>Your Tables</h1>
+					<h1>Employee List</h1>
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th>Table Name</th>
-								<th>#...</th>
-								<th>View Open Tables</th>
-								<th>Add New Item</th>
-								<th>Delete Table</th>
+								<th>Employee ID</th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr id="form-row">
 								<form id="author-form">
 									<td colspan="4">
-										<input placeholder="Enter a name" id="author-name" type="text" />
+										<input placeholder="Enter a Employee ID" id="author-name" type="text" />
 									</td>
-									<td><button type="submit" class="btn btn-success">add employee</button>
+									
+									<td><button type="submit" class="btn btn-success">Create Employee</button>
+										
 									</td>
 								</form>
 							</tr>
